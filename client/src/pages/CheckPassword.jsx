@@ -1,12 +1,12 @@
 import { useState } from "react"
 
 export default function CheckPassword() {
-    const [password, SetPassword] = useState('')
+    const [password, setPassword] = useState('')
     const [strength, setStrength] = useState(null)
     const [checked, setChecked] = useState(false)
     let data;
     
-    const CheckPassword = async () => {
+    const checkPassword = async () => {
         try {
             const response = await fetch('http://localhost:4001/check-password', {
                 method: "POST",
@@ -33,14 +33,14 @@ export default function CheckPassword() {
                 type="text"
                 placeholder="Enter the password to be checked here"
                 value={password}
-                onChange={e => SetPassword(e.target.value)}
+                onChange={e => setPassword(e.target.value)}
                 className="p-3 text-black rounded-lg w-4/12"
                 autoCorrect="false"
                 autoComplete="false"
                 spellCheck="false"
             />
             <button
-                onClick={CheckPassword}
+                onClick={checkPassword}
                 className="ml-2 p-3 bg-white text-black rounded-lg"
             >
                 Check

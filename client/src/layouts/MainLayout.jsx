@@ -10,8 +10,7 @@ export default function MainLayout() {
             <div className={`${isOpen ? "w-2/12" : "w-16"} transition-all duration-500`}>
                 <Sidebar isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} />
             </div>        
-            <div className="w-full h-screen bg-[#0A0A0A] rounded-t-lg mt-2 mr-2 flex flex-col align-middle text-center justify-center m-auto">
-                {/* <CheckUrl className="flex justify-center align-middle m-auto"></CheckUrl> */}
+            <div className="w-full h-screen bg-[#0A0A0A] flex flex-col align-middle text-center justify-center m-auto">
                 <Outlet />
             </div>
         </div>

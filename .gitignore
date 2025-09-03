@@ -152,6 +152,7 @@ pnpm-debug.log*
 # Environment Variables
 # ======================
 /server/src/api/.env
+/server/src/scripts/.env
 
 # ======================
 # Build Outputs

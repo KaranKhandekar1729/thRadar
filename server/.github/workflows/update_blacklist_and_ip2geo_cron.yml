@@ -1,0 +1,66 @@
+name: Update Blacklist and convert IPs to GeoLocations
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # every day at midnight UTC
+  workflow_dispatch:      # allow manual trigger
+
+jobs:
+  fetch-blacklist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests python-dotenv
+
+      - name: Fetch AbuseIPDB blacklist
+        env:
+          FETCH_IP_KEY: ${{ secrets.FETCH_IP_KEY }}
+        run: |
+          python server/src/scripts/fetch_abuseipdb_blacklist.py
+
+      - name: Commit updated blacklist.json
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add server/public/blacklist.json
+          git commit -m "Update blacklist.json [skip ci]" || echo "No changes to commit"
+          git push
+
+  enrich-blacklist:
+    runs-on: ubuntu-latest
+    needs: fetch-blacklist
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests python-dotenv
+
+      - name: Enrich blacklist IPs with geolocation
+        env:
+          IP2LOCATION_API_KEY: ${{ secrets.IP2LOCATION_API_KEY }}
+        run: |
+          python server/src/scripts/ip2geolocation.py
+
+      - name: Commit updated ips_with_geolocation.json
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add client/public/ips_with_geolocation.json
+          git commit -m "Update ips_with_geolocation.json [skip ci]" || echo "No changes to commit"
+          git push

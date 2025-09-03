@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import fs from "fs";
 import Phish from "./models/PhishUrlSchema.js";
 
-const MONGO_URI = "mongodb+srv://karankhandekar028:ol0uLeW44CE3QbHL@cluster0.ikmsanf.mongodb.net/phish-lookup?retryWrites=true&w=majority&appName=Cluster0"; // change if needed
+const MONGO_URI = import.meta.env.MONGO_URI;
 const BATCH_SIZE = 5000;
 
 async function seedData() {

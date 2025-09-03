@@ -2,3 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'SpaceMono';
+  src: url('/fonts/Space_Mono/SpaceMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-radar {
+  font-family: 'SpaceMono', sans-serif;
+}
+
+div canvas {
+    margin: auto !important;
+    z-index: 0 !important;
+    border-radius: 0.5rem !important;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(255,255,255,0.3) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.6);
+}
+

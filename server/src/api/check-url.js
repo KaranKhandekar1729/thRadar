@@ -10,7 +10,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-process.env.MONGO_URI
+const MONGO_URI = process.env.MONGO_URI
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
