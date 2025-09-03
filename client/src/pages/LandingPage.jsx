@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "motion/react";
 import { CardSpotlight } from "../components/ui/CardSpotlight.jsx";
 import { Link } from "react-router-dom";

@@ -11,6 +11,8 @@ export default function ResultsPage() {
     const [page, setPage] = useState(1)
     const [modalOpen, setModalOpen] = useState(false)
 
+    const baseUrl = import.meta.env.VITE_BASE_URL
+
     const CATEGORY_MAP = {
         1: "DNS Compromise: Altering DNS records resulting in improper redirection.",
         2: "DNS Poisoning: Falsifying domain server cache (cache poisoning).",
@@ -39,7 +41,7 @@ export default function ResultsPage() {
 
     useEffect(() => {
         if (!ip) return;
-        fetch(`http://localhost:3000/ipcheck?ip=${ip}`)
+        fetch(`${baseUrl}/ipcheck?ip=${ip}`)
             .then(r => r.json())
             .then(data => {
                 console.log(data)

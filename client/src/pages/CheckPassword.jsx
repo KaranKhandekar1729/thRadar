@@ -4,11 +4,11 @@ export default function CheckPassword() {
     const [password, setPassword] = useState('')
     const [strength, setStrength] = useState(null)
     const [checked, setChecked] = useState(false)
-    let data;
+    const baseUrl = import.meta.env.VITE_BASE_URL
     
     const checkPassword = async () => {
         try {
-            const response = await fetch('http://localhost:3000/check-password', {
+            const response = await fetch(`${baseUrl}/check-password`, {
                 method: "POST",
                 headers: { "Content-Type" : "application/json" },
                 body: JSON.stringify({ password })

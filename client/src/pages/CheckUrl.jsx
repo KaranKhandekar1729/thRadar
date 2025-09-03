@@ -3,9 +3,10 @@ import { useState } from "react";
 export default function CheckUrl() {
     const [url, setUrl] = useState("");
     const [result, setResult] = useState(null);
+    const baseUrl = import.meta.env.VITE_BASE_URL
 
     const checkUrl = async () => {
-        const res = await fetch(`http://localhost:3000/check-url?url=${encodeURIComponent(url)}`)
+        const res = await fetch(`${baseUrl}/check-url?url=${encodeURIComponent(url)}`)
         const data = await res.json()
         setResult(data)
         console.log("result: ", result)

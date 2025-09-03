@@ -11,12 +11,14 @@ export default function IPLookup() {
     let globeAPI = useRef(null)
     const navigate = useNavigate()
 
+    const baseUrl = import.meta.env.VITE_BASE_URL
+
     const checkIP = function () {
         navigate(`/ip-lookup/result?ip=${ip}`)
     }
 
     const rotateToIPLocation = async () => {
-        const response = await fetch(`http://localhost:3000/ip2loc?ip=${ip}`)
+        const response = await fetch(`${baseUrl}/ip2loc?ip=${ip}`)
         const { geoData } = await response.json()
         setGeoData(geoData)
         if (geoData && globeAPI) {
