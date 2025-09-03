@@ -40,7 +40,7 @@ export default function CheckPassword() {
                 spellCheck="false"
             />
             <button
-                disabled={password > 0 ? false : true}
+                disabled={password.length > 0 ? false : true}
                 onClick={checkPassword}
                 className="ml-2 p-3 bg-white text-black rounded-lg"
             >
