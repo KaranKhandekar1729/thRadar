@@ -5,7 +5,7 @@ export default function CheckUrl() {
     const [result, setResult] = useState(null);
 
     const checkUrl = async () => {
-        const res = await fetch(`http://localhost:4000/check-url?url=${encodeURIComponent(url)}`)
+        const res = await fetch(`http://localhost:3000/check-url?url=${encodeURIComponent(url)}`)
         const data = await res.json()
         setResult(data)
         console.log("result: ", result)

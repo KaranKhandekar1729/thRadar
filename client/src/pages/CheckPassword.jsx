@@ -8,7 +8,7 @@ export default function CheckPassword() {
     
     const checkPassword = async () => {
         try {
-            const response = await fetch('http://localhost:4001/check-password', {
+            const response = await fetch('http://localhost:3000/check-password', {
                 method: "POST",
                 headers: { "Content-Type" : "application/json" },
                 body: JSON.stringify({ password })

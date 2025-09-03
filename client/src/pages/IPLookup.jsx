@@ -16,7 +16,7 @@ export default function IPLookup() {
     }
 
     const rotateToIPLocation = async () => {
-        const response = await fetch(`http://localhost:5001/ip2loc?ip=${ip}`)
+        const response = await fetch(`http://localhost:3000/ip2loc?ip=${ip}`)
         const { geoData } = await response.json()
         setGeoData(geoData)
         if (geoData && globeAPI) {

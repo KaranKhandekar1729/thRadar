@@ -39,7 +39,7 @@ export default function ResultsPage() {
 
     useEffect(() => {
         if (!ip) return;
-        fetch(`http://localhost:5000/ipcheck?ip=${ip}`)
+        fetch(`http://localhost:3000/ipcheck?ip=${ip}`)
             .then(r => r.json())
             .then(data => {
                 console.log(data)
