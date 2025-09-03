@@ -21,6 +21,12 @@ export default function Globe({ arcData = [], pointData = [], render = "arcs", p
     lng: e.longitude,
   }));
 
+  const labels = countries.features.map(e => ({
+    country: e.properties.name,
+    lat: e.properties.label_x,
+    lng: e.properties.label_y
+  }))
+
   useEffect(() => {
     let renderer, camera, scene, controls;
 
@@ -135,6 +141,10 @@ export default function Globe({ arcData = [], pointData = [], render = "arcs", p
             .arcsTransitionDuration(0)
             .arcAltitudeAutoScale(0.5)
             // .arcColor(() => "#b30000");
+            // .labelsData(labels)
+            // .labelSize(0.5)
+            // .labelText((e) => e.country)
+            // .labelDotRadius(0.3)
 
           // Remove batch after its animation duration
           setTimeout(() => {

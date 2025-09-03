@@ -28,6 +28,7 @@ export default function CheckUrl() {
             />
             <button
                 onClick={checkUrl}
+                disabled={url > 0 ? false : true}
                 className="ml-2 p-3 bg-white text-black rounded-lg"
             >
                 Check

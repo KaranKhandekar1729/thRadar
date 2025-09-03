@@ -6,11 +6,11 @@ export default function MainLayout() {
     const [isOpen, setIsOpen] = useState(true);
 
     return (
-        <div className="bg-[#161616] text-white flex flex-row w-screen h-screen overflow-hidden">
+        <div className="font-radar bg-black text-white flex flex-row w-screen h-screen overflow-hidden">
             <div className={`${isOpen ? "w-2/12" : "w-16"} transition-all duration-500`}>
                 <Sidebar isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} />
             </div>        
-            <div className="w-full h-screen bg-[#0A0A0A] flex flex-col align-middle text-center justify-center m-auto">
+            <div className="w-full h-screen bg-black flex flex-col align-middle text-center justify-center m-auto">
                 <Outlet />
             </div>
         </div>

@@ -50,12 +50,14 @@ export default function IPLookup() {
                         spellCheck="false"
                     />
                     <button
+                        disabled={ip > 0 ? false : true}
                         onClick={checkIP}
                         className="ml-2 p-3 bg-[#003366] text-white rounded-lg"
                     >
                         Check
                     </button>
                     <button
+                        disabled={ip > 0 ? false : true}
                         onClick={rotateToIPLocation}
                         className="ml-2 p-3 bg-[#003366] text-white rounded-lg"
                     >
