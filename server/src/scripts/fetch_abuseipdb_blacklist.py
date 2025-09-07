@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-API_KEY = os.getenv("FETCH_IP_KEY")
+API_KEY = os.getenv("FETCH_IP_KEY").strip()
 
 HEADERS = {"Accept": "application/json", "Key": API_KEY}
 
