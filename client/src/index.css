@@ -17,6 +17,7 @@ div canvas {
     margin: auto !important;
     z-index: 0 !important;
     border-radius: 0.5rem !important;
+    cursor: grab;
 }
 
 .scrollbar-thin {
