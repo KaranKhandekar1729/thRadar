@@ -29,7 +29,8 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
-          python server/src/scripts/fetch_cloudflare_data.py
+          cd server/src/scripts
+          python fetch_cloudflare_data.py
 
       - name: Commit updated attacks.json
         run: |
