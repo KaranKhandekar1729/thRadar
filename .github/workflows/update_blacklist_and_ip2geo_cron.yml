@@ -64,6 +64,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+          git pull --rebase origin main
           git add client/public/ips_with_geolocation.json
           git commit -m "Update ips_with_geolocation.json [skip ci]" || echo "No changes to commit"
-          git push
+          git push origin main
