@@ -30,7 +30,7 @@ export default function CheckPassword() {
             <h3 className="text-xl mb-8">check from a large set of passwords exposed in data breaches</h3>
 
             <input
-                type="text"
+                type="password"
                 placeholder="Enter the password to be checked here"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
